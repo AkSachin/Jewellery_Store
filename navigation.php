@@ -11,9 +11,10 @@
 			
 				// Creating query to fetch main menu from mysql database table.
 				$main_menu_query = "select * from main_menu";
-				$main_menu_result = mysql_query($main_menu_query);
+				$main_menu_result = $conn->query($main_menu_query);
+				
 
-				while($r = mysql_fetch_array($main_menu_result))
+				while($r = mysqli_fetch_array($main_menu_result))
 				{
 	
 				?>
@@ -23,8 +24,8 @@
 				<?php
 				 // Creating query to fetch sub menu from mysql database table.
 				 $sub_menu_query = "select * from sub_menu where mmenu_id=".$r['mmenu_id'];
-				 $sub_menu_result = mysql_query($sub_menu_query);
-				 while($r1 = mysql_fetch_array($sub_menu_result))
+				 $sub_menu_result = $conn->query($sub_menu_query);
+				 while($r1 = mysqli_fetch_array($sub_menu_result))
 				 {
 					 
 				?>

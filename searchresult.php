@@ -106,7 +106,7 @@ else
 							$search = mysql_real_escape_string($search);
 							// makes sure nobody uses SQL injection
 							 
-							$raw_results = mysql_query($sql) or die(mysql_error());
+							$raw_results = $conn->query($sql) or die(mysql_error());
 							
 							// * means that it selects all fields, you can also write: `id`, `title`, `text`
 							// articles is the name of our table
@@ -120,8 +120,8 @@ else
 								
 								$count = 0;
 								
-								while($results = mysql_fetch_array($raw_results)){
-								// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+								while($results = mysqli_fetch_array($raw_results)){
+								// $results = mysqli_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 								
 								$id = $results["id"];
 								$prodname = $results["prodname"];

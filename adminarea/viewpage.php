@@ -53,7 +53,7 @@ else
         include('includes/connect-db.php');
 
         // get results from database
-        $result = mysql_query("SELECT * FROM webcontent ORDER BY content_id ASC") 
+        $result = $conn->query("SELECT * FROM webcontent ORDER BY content_id ASC") 
                 or die(mysql_error());  
                 
         // display data in table
@@ -64,7 +64,7 @@ else
 		
 		// loop through results of database query, displaying them in the table
 
-        while($row = mysql_fetch_array( $result )) {	
+        while($row = mysqli_fetch_array( $result )) {	
 			// echo out the contents of each row into a table
 			echo "<tr>";
 			echo '<td>' . $row['content_id'] . '</td>';

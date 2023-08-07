@@ -58,7 +58,7 @@ else
         $per_page = 5;
         
         // figure out the total pages in the database
-        $result = mysql_query("SELECT * FROM users");
+        $result = $conn->query("SELECT * FROM users");
         $total_results = mysql_num_rows($result);
         $total_pages = ceil($total_results / $per_page);
 

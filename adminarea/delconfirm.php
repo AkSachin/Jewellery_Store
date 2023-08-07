@@ -85,7 +85,7 @@ switch($type)
 }
 	
 // delete the entry
-$result = mysql_query($sql)
+$result = $conn->query($sql)
 or die(mysql_error()); 
 
 ?>

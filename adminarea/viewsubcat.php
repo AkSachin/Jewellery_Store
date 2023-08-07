@@ -54,7 +54,7 @@ else
 
         // get results from database
 
-        $result = mysql_query("SELECT * FROM main_menu, sub_menu WHERE main_menu.mmenu_id = sub_menu.mmenu_id ORDER BY sub_menu.id ASC") 
+        $result = $conn->query("SELECT * FROM main_menu, sub_menu WHERE main_menu.mmenu_id = sub_menu.mmenu_id ORDER BY sub_menu.id ASC") 
                 or die(mysql_error());  
                 
         // display data in table
@@ -66,7 +66,7 @@ else
 		
 		// loop through results of database query, displaying them in the table
 
-        while($row = mysql_fetch_array( $result )) {	
+        while($row = mysqli_fetch_array( $result )) {	
 			// echo out the contents of each row into a table
 			echo "<tr>";
 			echo '<td>' . $row['id'] . '</td>';

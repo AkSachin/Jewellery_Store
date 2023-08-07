@@ -25,7 +25,7 @@ function DbConnect () {
 
 function open(){
 
-$func = 'mysql_connect';
+$func = 'mysqli_connect';
 
 
 /* Connect to the MySQl Server */
@@ -71,7 +71,7 @@ class DbQuery extends DbConnect
 	
 	function query() {
 	
-	return $this->result = mysql_query($this->sql);
+	return $this->result = $conn->query($this->sql);
 	//return($this->result != false);
 	}
 	
@@ -86,7 +86,7 @@ class DbQuery extends DbConnect
 	return(@mysql_fetch_object($this->result, MYSQL_ASSOC));
 	}
 	function fetcharray() {
-	return(@mysql_fetch_array($this->result));
+	return(@mysqli_fetch_array($this->result));
 	}
 	
 	function fetchassoc() {

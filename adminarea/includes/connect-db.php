@@ -5,12 +5,12 @@ error_reporting(1);
  $user = 'root';
  $pass = '';
  $db = 'bbjewels';
- 
- // Connect to Database
- $connection = mysql_connect($server, $user, $pass) 
- //or die ("Could not connect to server ... \n" . mysql_error ());
- or die ("Could not connect to server ... \n");
- mysql_select_db($db) 
- or die ("Could not connect to database ... \n");
+
+ $conn = new mysqli($server, $user, $pass, $db);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 ?>
